@@ -1,25 +1,25 @@
 import { useState, useEffect } from 'react';
-import { 
-  Leaf, 
-  Search, 
-  ShoppingBag, 
-  Phone, 
-  MapPin, 
-  Clock, 
-  Star, 
-  Plus, 
-  Minus, 
-  Trash2, 
-  Calendar, 
-  Users, 
-  Check, 
-  ChevronRight, 
-  Flame, 
-  Utensils, 
-  X, 
-  MessageSquare, 
-  Gift, 
-  Sparkles, 
+import {
+  Leaf,
+  Search,
+  ShoppingBag,
+  Phone,
+  MapPin,
+  Clock,
+  Star,
+  Plus,
+  Minus,
+  Trash2,
+  Calendar,
+  Users,
+  Check,
+  ChevronRight,
+  Flame,
+  Utensils,
+  X,
+  MessageSquare,
+  Gift,
+  Sparkles,
   Heart,
   Send,
   Navigation,
@@ -113,7 +113,7 @@ function App() {
     setCart((prevCart) => {
       const existing = prevCart.find((i) => i.item.id === item.id);
       if (existing) {
-        return prevCart.map((i) => 
+        return prevCart.map((i) =>
           i.item.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
         );
       }
@@ -127,7 +127,7 @@ function App() {
       if (existing.quantity === 1) {
         return prevCart.filter((i) => i.item.id !== itemId);
       }
-      return prevCart.map((i) => 
+      return prevCart.map((i) =>
         i.item.id === itemId ? { ...i, quantity: i.quantity - 1 } : i
       );
     });
@@ -148,11 +148,11 @@ function App() {
 
   const applyPromoCode = (e) => {
     e.preventDefault();
-    if (couponCode.toUpperCase() === 'TRIMURTI20') {
+    if (couponCode.toUpperCase() === 'VEDAAY20') {
       setCouponApplied(true);
       setDiscountPercent(20);
     } else {
-      alert('Invalid coupon code! Try TRIMURTI20');
+      alert('Invalid coupon code! Try VEDAAY20');
     }
   };
 
@@ -177,7 +177,7 @@ function App() {
   // Reservation handling
   const handleBookingSubmit = (e) => {
     e.preventDefault();
-    const resId = 'TR-' + Math.floor(Math.random() * 9000 + 1000);
+    const resId = 'VD-' + Math.floor(Math.random() * 9000 + 1000);
     setConfirmedBooking({
       ...bookingForm,
       id: resId
@@ -222,7 +222,7 @@ function App() {
   const gstRate = 0.05; // 5% GST for restaurants
   const gstAmount = (subtotal - discountAmount) * gstRate;
   const packingDeliveryFee = subtotal > 0 ? (subtotal > 300 ? 0 : 35) : 0;
-  
+
   const getGrandTotal = () => {
     return Math.round(subtotal - discountAmount + gstAmount + packingDeliveryFee);
   };
@@ -231,11 +231,11 @@ function App() {
   const filteredMenu = menuData.filter((item) => {
     // Category filter
     const matchesCategory = activeTab === 'All' || item.category === activeTab;
-    
+
     // Search query filter
-    const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          item.description.toLowerCase().includes(searchQuery.toLowerCase());
-    
+    const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.description.toLowerCase().includes(searchQuery.toLowerCase());
+
     // Spicy level filter
     let matchesSpice = true;
     if (spiceFilter === 'Mild') matchesSpice = item.spicy === 0;
@@ -250,40 +250,42 @@ function App() {
 
   return (
     <div className="min-h-screen text-stone-900 bg-stone-50 font-sans selection:bg-brand-orange-medium selection:text-white relative">
-      
+
       {/* Top Banner Message */}
-      <div className="bg-brand-green-dark text-stone-100 text-xs py-2 px-4 text-center font-medium flex justify-between items-center transition-all">
-        <span className="flex items-center gap-1 mx-auto">
-          <Leaf className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400 inline" />
-          <span>100% PURE INDIAN VEGETARIAN HOTEL - HEALTHY & HYGIENIC DINING</span>
+      <div className="bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-900 text-stone-100 text-xs py-2.5 px-4 text-center font-medium flex justify-between items-center transition-all">
+        <span className="flex items-center gap-1.5 mx-auto">
+          <Leaf className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400 inline animate-pulse" />
+          <span className="tracking-wider">✨ 100% PURE INDIAN VEGETARIAN — HEALTHY &amp; HYGIENIC DINING</span>
         </span>
         <div className="hidden md:flex gap-4 items-center mr-4">
-          <span>Offers: 20% OFF code: <strong className="text-amber-400">TRIMURTI20</strong></span>
+          <span>Use code: <strong className="text-amber-300 border border-amber-400/40 px-2 py-0.5 rounded-full bg-amber-500/10">VEDAAY20</strong> for 20% OFF</span>
         </div>
       </div>
 
       {/* Navigation Header */}
-      <header className={`sticky top-0 z-40 transition-all duration-300 ${
-        scrolled 
-          ? 'bg-stone-900/95 backdrop-blur-md py-3 shadow-lg' 
-          : 'bg-stone-900 py-5'
-      }`}>
+      <header className={`sticky top-0 z-40 transition-all duration-500 ${scrolled
+        ? 'bg-stone-950/98 backdrop-blur-xl py-3 shadow-2xl shadow-black/30 border-b border-emerald-900/40'
+        : 'bg-stone-950 py-5'
+        }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo Brand */}
           <div className="flex items-center gap-3">
-            <div className="bg-emerald-600 p-2 rounded-lg flex items-center justify-center border border-emerald-500 shadow-md">
-              <Utensils className="w-6 h-6 text-white" />
+            <div className="relative">
+              <div className="bg-gradient-to-br from-emerald-500 to-emerald-700 p-2.5 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-500/30">
+                <Leaf className="w-6 h-6 text-white fill-white/30" />
+              </div>
+              <span className="absolute -top-1 -right-1 w-3 h-3 bg-amber-400 rounded-full border-2 border-stone-950"></span>
             </div>
             <div>
-              <div className="flex items-center gap-1.5">
-                <span className="text-xl sm:text-2xl font-serif font-black tracking-wider text-white">TRIMURTI</span>
-                <span className="border border-emerald-500 bg-emerald-950 text-[9px] text-emerald-400 font-bold px-1.5 py-0.5 rounded flex items-center gap-0.5">
-                  <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full inline-block"></span>
+              <div className="flex items-center gap-2">
+                <span className="text-2xl sm:text-3xl font-serif font-black tracking-widest text-white" style={{ letterSpacing: '0.12em' }}>VEDAAY</span>
+                <span className="border border-emerald-500/60 bg-emerald-950 text-[9px] text-emerald-400 font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full inline-block animate-pulse"></span>
                   PURE VEG
                 </span>
               </div>
-              <p className="text-[10px] tracking-widest text-amber-500 font-medium uppercase font-devanagari hindi-text -mt-1">
-                त्रिमूर्ति शुद्ध शाकाहारी होटल
+              <p className="text-[10px] tracking-widest text-amber-400/80 font-medium uppercase font-devanagari hindi-text -mt-0.5">
+                वेदाय शुद्ध शाकाहारी रेस्तरां
               </p>
             </div>
           </div>
@@ -300,16 +302,16 @@ function App() {
 
           {/* Cart & Quick Call Buttons */}
           <div className="flex items-center gap-4">
-            <a 
-              href="tel:+919876543210" 
+            <a
+              href="tel:+919876543210"
               className="hidden sm:flex items-center gap-2 text-stone-200 hover:text-amber-400 text-xs font-bold border border-stone-700 px-3.5 py-1.5 rounded-full hover:bg-stone-800 transition-all"
             >
               <Phone className="w-3.5 h-3.5 text-amber-500" />
               <span>Call Us: +91 98765 43210</span>
             </a>
-            
+
             {/* Cart Button */}
-            <button 
+            <button
               onClick={() => setIsCartOpen(true)}
               className="relative bg-amber-500 hover:bg-amber-600 text-stone-950 px-4 py-2.5 rounded-full font-bold text-sm shadow-md shadow-amber-500/20 hover:scale-105 transition-all duration-200 flex items-center gap-2 cursor-pointer"
             >
@@ -326,51 +328,55 @@ function App() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-stone-900 text-white pt-10 pb-16 lg:py-24">
+      <section className="relative overflow-hidden bg-gradient-to-br from-stone-950 via-stone-900 to-emerald-950 text-white pt-2 pb-6 lg:py-6">
         {/* Decorative backdrop shapes */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-500/8 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-emerald-600/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-emerald-900/20 rounded-full blur-3xl pointer-events-none"></div>
+        {/* Subtle dot grid pattern */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', backgroundSize: '28px 28px' }}></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Left Hero Content */}
             <div className="lg:col-span-6 space-y-6 text-left">
-              <div className="inline-flex items-center gap-2 bg-emerald-950/80 border border-emerald-500/30 px-3.5 py-1.5 rounded-full text-emerald-400 text-xs font-semibold">
-                <Leaf className="w-3.5 h-3.5 fill-emerald-400" />
+              <div className="inline-flex items-center gap-2 bg-emerald-950/80 border border-emerald-500/40 px-4 py-2 rounded-full text-emerald-400 text-xs font-semibold shadow-lg shadow-emerald-900/30 backdrop-blur-sm">
+                <Leaf className="w-3.5 h-3.5 fill-emerald-400 animate-pulse" />
                 <span>100% Traditional Indian Vegetarian Heritage</span>
+                <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
               </div>
-              
+
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-black tracking-tight leading-tight text-white">
                 Taste the Purity of <br />
-                <span className="text-amber-400 font-serif">Trimurti Cuisine</span>
+                <span className="bg-gradient-to-r from-amber-300 via-amber-400 to-orange-400 bg-clip-text text-transparent font-serif">Vedaay Cuisine</span>
               </h1>
-              
+
               <p className="text-stone-300 text-base sm:text-lg leading-relaxed max-w-xl">
-                Indulge in a premium dining experience featuring slow-simmered rich curries, smoky clay-oven tandoori appetizers, and soft, ghee-soaked South Indian classics. Prepared using pure spices and handpicked ingredients.
+                Experience <strong className="text-amber-300">amazing food &amp; great service</strong> at Vedaay — your family-friendly pure veg destination. Slow-simmered curries, clay-oven tandoori delights, and authentic South Indian classics. Budget-friendly at ₹200–400.
               </p>
 
               {/* Hindi Callout */}
-              <div className="bg-stone-850 p-4 rounded-xl border border-stone-800 flex items-center gap-4 max-w-md">
-                <span className="text-3xl font-devanagari text-amber-500 font-bold border-r border-stone-700 pr-4">
-                  शुद्धता
+              <div className="bg-gradient-to-r from-stone-900 to-emerald-950/60 p-4 rounded-2xl border border-emerald-800/40 flex items-center gap-4 max-w-md shadow-lg">
+                <span className="text-3xl font-devanagari text-amber-400 font-bold border-r border-emerald-800/60 pr-4">
+                  वेदाय
                 </span>
                 <div>
-                  <p className="text-xs font-medium text-emerald-400 uppercase tracking-wider">Our Promise</p>
+                  <p className="text-xs font-medium text-emerald-400 uppercase tracking-wider">Our Sacred Promise</p>
                   <p className="text-sm font-devanagari text-stone-300">बिना मिलावट का शुद्ध शाकाहारी स्वादिष्ट भोजन।</p>
                 </div>
               </div>
 
               {/* CTAs */}
               <div className="flex flex-wrap gap-4 pt-2">
-                <a 
+                <a
                   href="#menu-section"
                   className="bg-amber-500 hover:bg-amber-600 text-stone-950 px-8 py-3.5 rounded-full font-bold text-base shadow-lg shadow-amber-500/25 transition-all duration-200 transform hover:-translate-y-0.5 flex items-center gap-2 cursor-pointer"
                 >
                   <Utensils className="w-4 h-4" />
                   <span>Explore Menu</span>
                 </a>
-                <a 
+                <a
                   href="#booking-section"
                   className="bg-transparent hover:bg-stone-800 text-white border-2 border-stone-600 hover:border-white px-8 py-3.5 rounded-full font-bold text-base transition-all duration-200 flex items-center gap-2"
                 >
@@ -380,105 +386,114 @@ function App() {
               </div>
 
               {/* Features list */}
-              <div className="grid grid-cols-3 gap-4 pt-6 border-t border-stone-800/80">
-                <div>
-                  <h3 className="text-amber-400 font-bold text-lg">100% Pure</h3>
-                  <p className="text-xs text-stone-400">Strict vegetarian kitchen</p>
+              <div className="grid grid-cols-3 gap-4 pt-6 border-t border-stone-800/60">
+                <div className="text-center">
+                  <h3 className="text-2xl font-black text-amber-400">100%</h3>
+                  <p className="text-xs text-stone-400 mt-1">Pure Veg Kitchen</p>
                 </div>
-                <div>
-                  <h3 className="text-amber-400 font-bold text-lg">Fresh Spices</h3>
-                  <p className="text-xs text-stone-400">House-ground masalas</p>
+                <div className="text-center">
+                  <h3 className="text-2xl font-black text-amber-400">4.4★</h3>
+                  <p className="text-xs text-stone-400 mt-1">Google Rating</p>
                 </div>
-                <div>
-                  <h3 className="text-amber-400 font-bold text-lg">Hygienic</h3>
-                  <p className="text-xs text-stone-400">5-Star safety standards</p>
+                <div className="text-center">
+                  <h3 className="text-2xl font-black text-amber-400">500+</h3>
+                  <p className="text-xs text-stone-400 mt-1">Happy Families</p>
                 </div>
               </div>
             </div>
 
             {/* Right Hero Image */}
-            <div className="lg:col-span-6 relative flex justify-center">
+            <div className="lg:col-span-6 relative flex justify-center -mt-16">
               <div className="relative w-full max-w-md sm:max-w-lg aspect-square">
+                {/* Animated glow ring */}
+                {/* <div className="absolute -inset-3 rounded-[2.5rem] opacity-60" style={{background: 'conic-gradient(from 0deg, #f59e0b, #10b981, #f59e0b, #10b981)', filter: 'blur(18px)', animation: 'spin 8s linear infinite'}}></div> */}
                 {/* Image border/shadow decoration */}
-                <div className="absolute -inset-1.5 bg-gradient-to-r from-amber-500 to-emerald-600 rounded-3xl blur-md opacity-75"></div>
-                <div className="relative w-full h-full bg-stone-900 rounded-3xl overflow-hidden shadow-2xl border border-stone-800">
-                  <img 
-                    src={heroImg} 
-                    alt="Trimurti Grand Vegetarian Dining Feast" 
-                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" 
+                <div className="absolute -inset-1.5 bg-gradient-to-br from-amber-400 via-emerald-500 to-amber-500 rounded-3xl blur-sm opacity-80"></div>
+                <div className="relative w-full h-full bg-stone-950 rounded-3xl overflow-hidden shadow-2xl border border-stone-700">
+                  <img
+                    src={heroImg}
+                    alt="Vedaay Grand Vegetarian Dining Feast"
+                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                   />
-                  {/* Floating best seller tag */}
-                  <div className="absolute bottom-6 right-6 bg-stone-900/90 backdrop-blur-md p-3.5 rounded-2xl border border-amber-500/30 flex items-center gap-3 shadow-lg">
-                    <div className="w-10 h-10 rounded-xl bg-amber-500 flex items-center justify-center text-stone-950 font-black">
-                      4.9★
+                  {/* Dark overlay gradient at bottom */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-stone-950/60 via-transparent to-transparent"></div>
+                  {/* Floating rating badge */}
+                  <div className="absolute bottom-5 right-5 bg-stone-900/95 backdrop-blur-md p-3.5 rounded-2xl border border-amber-500/40 flex items-center gap-3 shadow-xl">
+                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-stone-950 font-black text-sm shadow-md">
+                      4.4★
                     </div>
                     <div>
-                      <p className="text-[10px] text-stone-400 font-bold uppercase tracking-wider">Top Rated Indian Veg</p>
-                      <p className="text-sm font-bold text-white">Trimurti Grand Thali</p>
+                      <p className="text-[10px] text-stone-400 font-bold uppercase tracking-wider">Google Rated</p>
+                      <p className="text-sm font-bold text-white">Vedaay Pure Veg</p>
                     </div>
+                  </div>
+                  {/* Top-left pure veg badge */}
+                  <div className="absolute top-5 left-5 bg-emerald-600/90 backdrop-blur-sm text-white text-[10px] font-black px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-lg">
+                    <Leaf className="w-3 h-3 fill-white" />
+                    100% PURE VEG
                   </div>
                 </div>
               </div>
             </div>
-            
+
           </div>
         </div>
       </section>
 
       {/* Quality Highlights Section */}
-      <section className="py-12 bg-white border-y border-stone-200">
+      <section className="py-14 bg-gradient-to-r from-stone-950 via-stone-900 to-stone-950 border-y border-stone-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="flex items-start gap-4">
-              <div className="bg-emerald-50 p-3 rounded-2xl text-emerald-600 shrink-0">
-                <Leaf className="w-6 h-6 fill-emerald-600/20" />
+            <div className="flex items-start gap-4 group">
+              <div className="bg-emerald-500/10 border border-emerald-500/20 p-3.5 rounded-2xl text-emerald-400 shrink-0 group-hover:bg-emerald-500/20 transition-colors">
+                <Leaf className="w-6 h-6 fill-emerald-400/20" />
               </div>
               <div>
-                <h4 className="font-bold text-stone-900 font-serif text-lg">Pure Vegetarian</h4>
-                <p className="text-stone-500 text-sm mt-1">Separate preparation units, no meat, egg, or animal fat ingredients used.</p>
+                <h4 className="font-bold text-white font-serif text-lg">Pure Vegetarian</h4>
+                <p className="text-stone-400 text-sm mt-1">Separate preparation units, no meat, egg, or animal fat.</p>
               </div>
             </div>
-            <div className="flex items-start gap-4">
-              <div className="bg-amber-50 p-3 rounded-2xl text-amber-600 shrink-0">
-                <Flame className="w-6 h-6 fill-amber-600/20" />
+            <div className="flex items-start gap-4 group">
+              <div className="bg-amber-500/10 border border-amber-500/20 p-3.5 rounded-2xl text-amber-400 shrink-0 group-hover:bg-amber-500/20 transition-colors">
+                <Flame className="w-6 h-6 fill-amber-400/20" />
               </div>
               <div>
-                <h4 className="font-bold text-stone-900 font-serif text-lg">Tandoori Wonders</h4>
-                <p className="text-stone-500 text-sm mt-1">Grilled at high temperatures in a real charcoal-fired clay oven (Tandoor).</p>
+                <h4 className="font-bold text-white font-serif text-lg">Tandoori Wonders</h4>
+                <p className="text-stone-400 text-sm mt-1">Real charcoal-fired clay oven (Tandoor) for smoky flavors.</p>
               </div>
             </div>
-            <div className="flex items-start gap-4">
-              <div className="bg-stone-100 p-3 rounded-2xl text-stone-700 shrink-0">
+            <div className="flex items-start gap-4 group">
+              <div className="bg-stone-500/10 border border-stone-600/30 p-3.5 rounded-2xl text-stone-300 shrink-0 group-hover:bg-stone-700/30 transition-colors">
                 <Clock className="w-6 h-6" />
               </div>
               <div>
-                <h4 className="font-bold text-stone-900 font-serif text-lg">18-Hour Slow Cook</h4>
-                <p className="text-stone-500 text-sm mt-1">Traditional recipes like our signature Dal Makhani slow-cooked overnight.</p>
+                <h4 className="font-bold text-white font-serif text-lg">18-Hour Slow Cook</h4>
+                <p className="text-stone-400 text-sm mt-1">Signature Dal Makhani slow-cooked overnight for deep flavor.</p>
               </div>
             </div>
-            <div className="flex items-start gap-4">
-              <div className="bg-emerald-50 p-3 rounded-2xl text-emerald-600 shrink-0">
+            <div className="flex items-start gap-4 group">
+              <div className="bg-emerald-500/10 border border-emerald-500/20 p-3.5 rounded-2xl text-emerald-400 shrink-0 group-hover:bg-emerald-500/20 transition-colors">
                 <Check className="w-6 h-6" />
               </div>
               <div>
-                <h4 className="font-bold text-stone-900 font-serif text-lg">Hygienic Kitchen</h4>
-                <p className="text-stone-500 text-sm mt-1">Water filtration, fresh ingredients sourced daily, and staff hygiene checklists.</p>
+                <h4 className="font-bold text-white font-serif text-lg">Hygienic Kitchen</h4>
+                <p className="text-stone-400 text-sm mt-1">Water filtration, fresh daily ingredients &amp; staff hygiene checklists.</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Grand Trimurti Thali Highlight Section */}
+      {/* Grand Vedaay Thali Highlight Section */}
       <section id="thali-section" className="py-16 bg-gradient-to-br from-stone-950 to-emerald-950 text-white relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-500/10 via-transparent to-transparent"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
+
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="text-amber-400 text-sm uppercase tracking-widest font-extrabold flex items-center justify-center gap-1.5">
               <Sparkles className="w-4 h-4 fill-amber-400" /> Signature Royal Feast
             </span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-black mt-2 text-white">The Trimurti Grand Maharaja Thali</h2>
+            <h2 className="text-3xl sm:text-4xl font-serif font-black mt-2 text-white">The Vedaay Grand Maharaja Thali</h2>
             <p className="text-stone-300 mt-3 text-base">
               A lavish collection of our absolute best recipes served in copper bowls on a single royal bronze thali. A complete culinary experience fit for royalty.
             </p>
@@ -486,12 +501,12 @@ function App() {
 
           <div className="bg-stone-900/60 backdrop-blur-md rounded-3xl border border-amber-500/30 overflow-hidden shadow-2xl max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2">
-              
+
               {/* Thali Image */}
               <div className="relative h-64 md:h-auto min-h-[300px]">
-                <img 
-                  src={heroImg} 
-                  alt="Trimurti Grand Thali Feast" 
+                <img
+                  src={heroImg}
+                  alt="Vedaay Grand Thali Feast"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-stone-950 via-stone-950/20 to-transparent"></div>
@@ -524,7 +539,7 @@ function App() {
                   <h4 className="text-amber-400 font-bold text-xs uppercase tracking-wider mt-6 mb-2.5">What's Included:</h4>
                   <div className="grid grid-cols-2 gap-y-2 gap-x-4 text-sm text-stone-200">
                     <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400 shrink-0" /> Paneer Butter Masala</div>
-                    <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400 shrink-0" /> Trimurti Special Dal Makhani</div>
+                    <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400 shrink-0" /> Vedaay Special Dal Makhani</div>
                     <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400 shrink-0" /> Mix Veg Sabzi (Dry)</div>
                     <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400 shrink-0" /> Aromatic Basmati Jeera Rice</div>
                     <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-400 shrink-0" /> 2 Fresh Tandoori Butter Naan</div>
@@ -539,11 +554,11 @@ function App() {
                     <Clock className="w-4 h-4 text-amber-500" />
                     <span>Serving Time: 11:30 AM - 11:00 PM</span>
                   </div>
-                  
-                  <button 
+
+                  <button
                     onClick={() => addToCart({
                       id: "thali-grand",
-                      name: "Trimurti Grand Maharaja Thali",
+                      name: "Vedaay Grand Maharaja Thali",
                       category: "Main Course",
                       price: 350,
                       spicy: 1,
@@ -566,15 +581,15 @@ function App() {
       </section>
 
       {/* Main Menu Section (Interactive Filtering) */}
-      <section id="menu-section" className="py-16 bg-stone-100/50">
+      <section id="menu-section" className="py-16 bg-gradient-to-b from-stone-50 to-stone-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           {/* Menu Title */}
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="text-emerald-600 text-xs font-black uppercase tracking-widest bg-emerald-50 px-3.5 py-1.5 rounded-full inline-block">
-              Culinary Delights
+            <span className="text-emerald-600 text-xs font-black uppercase tracking-widest bg-emerald-50 border border-emerald-100 px-4 py-1.5 rounded-full inline-block shadow-sm">
+              🌿 Culinary Delights
             </span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-black mt-3">Explore Our Pure Veg Menu</h2>
+            <h2 className="text-3xl sm:text-4xl font-serif font-black mt-3 bg-gradient-to-r from-stone-900 to-emerald-800 bg-clip-text text-transparent">Explore Our Pure Veg Menu</h2>
             <p className="text-stone-500 mt-2">
               Browse through our authentic Indian recipe collection. Filter by categories, search for dishes, or adjust spice levels.
             </p>
@@ -583,11 +598,11 @@ function App() {
           {/* Interactive Filters Bar */}
           <div className="bg-white p-4 sm:p-6 rounded-2xl border border-stone-200 shadow-sm space-y-4 mb-8">
             <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
-              
+
               {/* Search Bar */}
               <div className="relative w-full lg:max-w-md">
                 <Search className="w-5 h-5 text-stone-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-                <input 
+                <input
                   type="text"
                   placeholder="Search paneer, dosa, naan, desserts..."
                   value={searchQuery}
@@ -595,7 +610,7 @@ function App() {
                   className="w-full pl-11 pr-4 py-2.5 rounded-xl border border-stone-200 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 text-sm transition-all bg-stone-50/50"
                 />
                 {searchQuery && (
-                  <button 
+                  <button
                     onClick={() => setSearchQuery('')}
                     className="absolute right-3.5 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600"
                   >
@@ -609,7 +624,7 @@ function App() {
                 {/* Spicy Filter */}
                 <div className="flex items-center gap-2">
                   <span className="text-xs font-bold text-stone-500 uppercase tracking-wider">Spice Level:</span>
-                  <select 
+                  <select
                     value={spiceFilter}
                     onChange={(e) => setSpiceFilter(e.target.value)}
                     className="bg-stone-50 border border-stone-200 text-stone-800 text-xs rounded-xl px-3 py-2 focus:outline-none focus:border-amber-500 font-semibold cursor-pointer"
@@ -622,13 +637,12 @@ function App() {
                 </div>
 
                 {/* Best Sellers Filter Toggle */}
-                <button 
+                <button
                   onClick={() => setOnlyBestSellers(!onlyBestSellers)}
-                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all border flex items-center gap-1.5 cursor-pointer ${
-                    onlyBestSellers 
-                      ? 'bg-amber-500 border-amber-500 text-stone-950 font-extrabold shadow-sm'
-                      : 'bg-stone-50 border-stone-200 text-stone-600 hover:bg-stone-100'
-                  }`}
+                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all border flex items-center gap-1.5 cursor-pointer ${onlyBestSellers
+                    ? 'bg-amber-500 border-amber-500 text-stone-950 font-extrabold shadow-sm'
+                    : 'bg-stone-50 border-stone-200 text-stone-600 hover:bg-stone-100'
+                    }`}
                 >
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>Best Sellers Only</span>
@@ -643,11 +657,10 @@ function App() {
                 <button
                   key={category}
                   onClick={() => setActiveTab(category)}
-                  className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
-                    activeTab === category
-                      ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/10'
-                      : 'bg-stone-50 hover:bg-stone-100 text-stone-600 border border-stone-200/60'
-                  }`}
+                  className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${activeTab === category
+                    ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/10'
+                    : 'bg-stone-50 hover:bg-stone-100 text-stone-600 border border-stone-200/60'
+                    }`}
                 >
                   {category}
                 </button>
@@ -661,33 +674,39 @@ function App() {
               {filteredMenu.map((item) => {
                 const qty = getCartQuantity(item.id);
                 return (
-                  <div 
+                  <div
                     key={item.id}
-                    className="bg-white rounded-2xl overflow-hidden border border-stone-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+                    className="bg-white rounded-2xl overflow-hidden border border-stone-100 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group"
                   >
                     <div>
                       {/* Image and badges */}
-                      <div className="relative h-48 overflow-hidden bg-stone-100">
-                        <img 
-                          src={item.image} 
-                          alt={item.name} 
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      <div className="relative h-56 overflow-hidden bg-gradient-to-br from-stone-100 to-stone-200">
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                          loading="lazy"
+                          onError={(e) => {
+                            e.target.src = 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80';
+                          }}
                         />
-                        
+                        {/* Subtle bottom gradient for text readability */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+
                         {/* Veg green indicator mark */}
-                        <div className="absolute top-3 left-3 bg-white p-1 rounded border border-emerald-500 flex items-center justify-center shadow-md">
+                        <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-sm p-1.5 rounded-lg border-2 border-emerald-500 flex items-center justify-center shadow-md">
                           <div className="w-2.5 h-2.5 bg-emerald-600 rounded-full"></div>
                         </div>
 
                         {/* Rating badge */}
-                        <div className="absolute top-3 right-3 bg-stone-900/80 backdrop-blur-md px-2 py-0.5 rounded-lg flex items-center gap-1 text-[11px] font-bold text-amber-400 border border-stone-800">
+                        <div className="absolute top-3 right-3 bg-stone-900/85 backdrop-blur-md px-2.5 py-1 rounded-xl flex items-center gap-1 text-[11px] font-bold text-amber-400 border border-amber-500/30 shadow-lg">
                           <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
                           <span>{item.rating}</span>
                         </div>
 
                         {/* Spice Level indicator */}
                         {item.spicy > 0 && (
-                          <div className="absolute bottom-3 left-3 bg-stone-900/85 backdrop-blur-md px-2 py-1 rounded-lg border border-stone-850 flex items-center gap-0.5 text-orange-500">
+                          <div className="absolute bottom-3 left-3 bg-stone-900/85 backdrop-blur-md px-2.5 py-1.5 rounded-xl border border-orange-500/20 flex items-center gap-0.5 text-orange-500 shadow">
                             {[...Array(item.spicy)].map((_, i) => (
                               <Flame key={i} className="w-3 h-3 fill-orange-500" />
                             ))}
@@ -704,11 +723,11 @@ function App() {
                             </span>
                           ))}
                         </div>
-                        
+
                         <h3 className="font-serif font-bold text-stone-900 text-lg group-hover:text-emerald-700 transition-colors">
                           {item.name}
                         </h3>
-                        
+
                         <p className="text-xs text-stone-500 leading-relaxed line-clamp-2">
                           {item.description}
                         </p>
@@ -724,7 +743,7 @@ function App() {
 
                       {qty > 0 ? (
                         <div className="bg-emerald-600 text-white rounded-full flex items-center overflow-hidden border border-emerald-700 shadow-md">
-                          <button 
+                          <button
                             onClick={() => removeFromCart(item.id)}
                             className="p-2 hover:bg-emerald-700 transition-colors cursor-pointer"
                           >
@@ -733,7 +752,7 @@ function App() {
                           <span className="px-3 text-sm font-black min-w-[20px] text-center font-mono">
                             {qty}
                           </span>
-                          <button 
+                          <button
                             onClick={() => addToCart(item)}
                             className="p-2 hover:bg-emerald-700 transition-colors cursor-pointer"
                           >
@@ -741,7 +760,7 @@ function App() {
                           </button>
                         </div>
                       ) : (
-                        <button 
+                        <button
                           onClick={() => addToCart(item)}
                           className="bg-stone-900 hover:bg-emerald-600 text-white px-4 py-2 rounded-full text-xs font-bold transition-all shadow-sm flex items-center gap-1 cursor-pointer"
                         >
@@ -761,7 +780,7 @@ function App() {
               <p className="text-stone-500 text-sm mt-1">
                 We couldn't find any dishes matching your filters or search query. Try clearing filters or searching for something else.
               </p>
-              <button 
+              <button
                 onClick={() => {
                   setSearchQuery('');
                   setSpiceFilter('All');
@@ -781,9 +800,9 @@ function App() {
       {/* Online Reservation Section */}
       <section id="booking-section" className="py-16 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="grid lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Left side details */}
             <div className="lg:col-span-5 text-left space-y-6">
               <span className="text-amber-600 text-xs font-black uppercase tracking-widest bg-amber-50 px-3.5 py-1.5 rounded-full inline-block">
@@ -794,7 +813,7 @@ function App() {
                 Table in Advance
               </h2>
               <p className="text-stone-500 text-sm leading-relaxed">
-                Planning a family gathering, lunch meet, or a festive celebration? Book a table at Trimurti Pure Veg Hotel. Avoid queues and secure the best spots.
+                Planning a family gathering, lunch meet, or a festive celebration? Book a table at Vedaay Pure Veg Restaurant. Avoid queues and secure the best spots.
               </p>
 
               <div className="space-y-4">
@@ -843,7 +862,7 @@ function App() {
                   {/* Decorative tickets holes */}
                   <div className="absolute top-1/2 -left-4 w-8 h-8 bg-white rounded-full"></div>
                   <div className="absolute top-1/2 -right-4 w-8 h-8 bg-white rounded-full"></div>
-                  
+
                   <div className="text-center border-b border-dashed border-stone-700 pb-6 mb-6">
                     <div className="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3 shadow-md shadow-emerald-500/20">
                       <Check className="w-6 h-6 text-white" />
@@ -887,13 +906,13 @@ function App() {
                   )}
 
                   <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-stone-800">
-                    <button 
+                    <button
                       onClick={() => setBookingSuccess(false)}
                       className="flex-1 bg-amber-500 hover:bg-amber-600 text-stone-950 py-3 rounded-xl font-bold text-sm transition-all text-center"
                     >
                       Book Another Table
                     </button>
-                    <button 
+                    <button
                       onClick={() => {
                         alert('Calendar event created mock!');
                       }}
@@ -905,7 +924,7 @@ function App() {
                 </div>
               ) : (
                 /* Reservation Form view */
-                <form 
+                <form
                   onSubmit={handleBookingSubmit}
                   className="bg-stone-50 border border-stone-200 p-6 sm:p-10 rounded-3xl shadow-sm text-left max-w-2xl mx-auto space-y-4"
                 >
@@ -916,7 +935,7 @@ function App() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-bold text-stone-600 uppercase tracking-wide mb-1">Full Name *</label>
-                      <input 
+                      <input
                         type="text"
                         required
                         placeholder="Enter your name"
@@ -928,7 +947,7 @@ function App() {
 
                     <div>
                       <label className="block text-xs font-bold text-stone-600 uppercase tracking-wide mb-1">Phone Number *</label>
-                      <input 
+                      <input
                         type="tel"
                         required
                         placeholder="Enter phone number"
@@ -958,7 +977,7 @@ function App() {
 
                     <div>
                       <label className="block text-xs font-bold text-stone-600 uppercase tracking-wide mb-1">Select Date *</label>
-                      <input 
+                      <input
                         type="date"
                         required
                         value={bookingForm.date}
@@ -988,7 +1007,7 @@ function App() {
 
                   <div>
                     <label className="block text-xs font-bold text-stone-600 uppercase tracking-wide mb-1">Email Address (Optional)</label>
-                    <input 
+                    <input
                       type="email"
                       placeholder="email@example.com"
                       value={bookingForm.email}
@@ -999,7 +1018,7 @@ function App() {
 
                   <div>
                     <label className="block text-xs font-bold text-stone-600 uppercase tracking-wide mb-1">Special Requests (Optional)</label>
-                    <textarea 
+                    <textarea
                       rows="3"
                       placeholder="Wheelchair access, high chair for kids, candlelit setup, etc."
                       value={bookingForm.requests}
@@ -1008,7 +1027,7 @@ function App() {
                     ></textarea>
                   </div>
 
-                  <button 
+                  <button
                     type="submit"
                     className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3.5 rounded-xl font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
@@ -1025,21 +1044,21 @@ function App() {
       </section>
 
       {/* Customer Testimonials & Add Review Section */}
-      <section id="reviews-section" className="py-16 bg-stone-100/50">
+      <section id="reviews-section" className="py-16 bg-gradient-to-b from-stone-100 to-stone-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
             <div className="text-left max-w-xl">
-              <span className="text-emerald-600 text-xs font-black uppercase tracking-widest bg-emerald-50 px-3.5 py-1.5 rounded-full inline-block">
-                Guest Reviews
+              <span className="text-emerald-600 text-xs font-black uppercase tracking-widest bg-emerald-50 border border-emerald-100 px-4 py-1.5 rounded-full inline-block shadow-sm">
+                ⭐ Guest Reviews
               </span>
-              <h2 className="text-3xl sm:text-4xl font-serif font-black mt-3">What Our Guests Say</h2>
+              <h2 className="text-3xl sm:text-4xl font-serif font-black mt-3 bg-gradient-to-r from-stone-900 to-emerald-800 bg-clip-text text-transparent">What Our Guests Say</h2>
               <p className="text-stone-500 mt-2 text-sm">
                 Real feedback from real food lovers. We take pride in delivering clean, hygienic, and authentic pure veg food.
               </p>
             </div>
 
-            <button 
+            <button
               onClick={() => setReviewFormOpen(!reviewFormOpen)}
               className="bg-amber-500 hover:bg-amber-600 text-stone-950 px-5 py-2.5 rounded-full font-bold text-xs shadow-md transition-all flex items-center gap-2 cursor-pointer"
             >
@@ -1051,7 +1070,7 @@ function App() {
           {/* Add Review Panel */}
           {reviewFormOpen && (
             <div className="bg-white border border-stone-200 rounded-3xl p-6 sm:p-8 max-w-xl mx-auto mb-10 text-left shadow-lg relative">
-              <button 
+              <button
                 onClick={() => setReviewFormOpen(false)}
                 className="absolute top-4 right-4 text-stone-400 hover:text-stone-600"
               >
@@ -1074,7 +1093,7 @@ function App() {
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-bold text-stone-600 uppercase tracking-wide mb-1">Your Name *</label>
-                      <input 
+                      <input
                         type="text"
                         required
                         placeholder="E.g. Rajesh Patil"
@@ -1085,7 +1104,7 @@ function App() {
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-stone-600 uppercase tracking-wide mb-1">Who are you? (Optional)</label>
-                      <input 
+                      <input
                         type="text"
                         placeholder="E.g. Food Lover, Chef, Local"
                         value={newReview.role}
@@ -1108,11 +1127,10 @@ function App() {
                           onMouseLeave={() => setHoverRating(0)}
                           className="text-stone-300 hover:scale-110 transition-transform cursor-pointer"
                         >
-                          <Star className={`w-7 h-7 ${
-                            star <= (hoverRating || newReview.rating) 
-                              ? 'text-amber-400 fill-amber-400' 
-                              : 'text-stone-200'
-                          }`} />
+                          <Star className={`w-7 h-7 ${star <= (hoverRating || newReview.rating)
+                            ? 'text-amber-400 fill-amber-400'
+                            : 'text-stone-200'
+                            }`} />
                         </button>
                       ))}
                     </div>
@@ -1120,7 +1138,7 @@ function App() {
 
                   <div>
                     <label className="block text-xs font-bold text-stone-600 uppercase tracking-wide mb-1">Your Review *</label>
-                    <textarea 
+                    <textarea
                       required
                       rows="3"
                       placeholder="Tell others about the food quality, taste, hygiene, service..."
@@ -1145,8 +1163,8 @@ function App() {
           {/* Reviews Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {reviews.map((rev) => (
-              <div 
-                key={rev.id} 
+              <div
+                key={rev.id}
                 className="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm flex flex-col justify-between text-left hover:shadow-md transition-all"
               >
                 <div>
@@ -1169,9 +1187,9 @@ function App() {
                 </div>
 
                 <div className="flex items-center gap-3 border-t border-stone-100 pt-4">
-                  <img 
-                    src={rev.avatar} 
-                    alt={rev.name} 
+                  <img
+                    src={rev.avatar}
+                    alt={rev.name}
                     className="w-10 h-10 rounded-full object-cover border border-stone-200 shrink-0"
                   />
                   <div>
@@ -1187,21 +1205,21 @@ function App() {
       </section>
 
       {/* Map, Opening Hours & Contact Section */}
-      <section id="contact-section" className="py-16 bg-white border-t border-stone-200">
+      <section id="contact-section" className="py-16 bg-gradient-to-b from-stone-50 to-white border-t border-stone-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="grid lg:grid-cols-12 gap-12 items-stretch">
-            
+
             {/* Contact Details & Feedback Form */}
             <div className="lg:col-span-5 text-left flex flex-col justify-between space-y-8">
-              
+
               <div className="space-y-4">
-                <span className="text-emerald-600 text-xs font-black uppercase tracking-widest bg-emerald-50 px-3.5 py-1.5 rounded-full inline-block">
-                  Location & Info
+                <span className="text-emerald-600 text-xs font-black uppercase tracking-widest bg-emerald-50 border border-emerald-100 px-4 py-1.5 rounded-full inline-block shadow-sm">
+                  📍 Location &amp; Info
                 </span>
-                <h2 className="text-3xl font-serif font-black text-stone-900">Visit Our Restaurant</h2>
+                <h2 className="text-3xl font-serif font-black text-stone-900 bg-gradient-to-r from-stone-900 to-emerald-800 bg-clip-text text-transparent">Visit Vedaay Restaurant</h2>
                 <p className="text-stone-500 text-sm">
-                  We are conveniently located at a key junction with ample parking space. Bring your family for an unforgettable vegetarian feast.
+                  Conveniently located with ample parking. <span className="text-emerald-600 font-semibold">Open • Closes 10:30 PM</span>. Bring your family for an unforgettable pure veg feast.
                 </p>
 
                 <div className="space-y-4 pt-2">
@@ -1209,7 +1227,7 @@ function App() {
                     <MapPin className="w-5 h-5 text-amber-500 mt-1 shrink-0" />
                     <div>
                       <h4 className="font-bold text-stone-900 text-sm font-serif">Address</h4>
-                      <p className="text-stone-500 text-xs mt-0.5">Trimurti Chowk, Opp. Gold Heights, Ring Road, Pune, Maharashtra - 411030</p>
+                      <p className="text-stone-500 text-xs mt-0.5">Vedaay Chowk, Opp. Gold Heights, Ring Road, Pune, Maharashtra - 411030</p>
                     </div>
                   </div>
 
@@ -1217,8 +1235,12 @@ function App() {
                     <Clock className="w-5 h-5 text-amber-500 mt-1 shrink-0" />
                     <div>
                       <h4 className="font-bold text-stone-900 text-sm font-serif">Opening Hours</h4>
-                      <p className="text-stone-500 text-xs mt-0.5">Everyday: 7:00 AM - 11:00 PM</p>
-                      <p className="text-[10px] text-emerald-600 font-semibold mt-0.5">Kitchen closes at 10:45 PM</p>
+                      <p className="text-stone-500 text-xs mt-0.5">Everyday: Open all day</p>
+                      <p className="text-[10px] text-red-500 font-semibold mt-0.5">Kitchen closes at 10:30 PM</p>
+                      <div className="flex items-center gap-1.5 mt-1">
+                        <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse inline-block"></span>
+                        <span className="text-[10px] text-emerald-600 font-bold">Currently Open</span>
+                      </div>
                     </div>
                   </div>
 
@@ -1227,7 +1249,7 @@ function App() {
                     <div>
                       <h4 className="font-bold text-stone-900 text-sm font-serif">Contact Details</h4>
                       <p className="text-stone-500 text-xs mt-0.5">Reservations: +91 98765 43210</p>
-                      <p className="text-stone-500 text-xs">Email: info@trimurtipureveg.com</p>
+                      <p className="text-stone-500 text-xs">Email: info@vedaaypureveg.com</p>
                     </div>
                   </div>
                 </div>
@@ -1241,7 +1263,7 @@ function App() {
                 ) : (
                   <form onSubmit={handleContactSubmit} className="space-y-3">
                     <div className="grid grid-cols-2 gap-3">
-                      <input 
+                      <input
                         type="text"
                         required
                         placeholder="Your Name"
@@ -1249,7 +1271,7 @@ function App() {
                         onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
                         className="px-3 py-2 text-xs rounded-xl border border-stone-200 bg-white focus:outline-none focus:border-amber-500"
                       />
-                      <input 
+                      <input
                         type="email"
                         required
                         placeholder="Email Address"
@@ -1258,7 +1280,7 @@ function App() {
                         className="px-3 py-2 text-xs rounded-xl border border-stone-200 bg-white focus:outline-none focus:border-amber-500"
                       />
                     </div>
-                    <textarea 
+                    <textarea
                       required
                       rows="2"
                       placeholder="Your questions or feedback..."
@@ -1266,7 +1288,7 @@ function App() {
                       onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
                       className="w-full px-3 py-2 text-xs rounded-xl border border-stone-200 bg-white focus:outline-none focus:border-amber-500 resize-none"
                     ></textarea>
-                    <button 
+                    <button
                       type="submit"
                       className="bg-stone-900 hover:bg-amber-500 hover:text-stone-950 text-white text-xs font-bold px-4 py-2 rounded-xl transition-all"
                     >
@@ -1280,7 +1302,7 @@ function App() {
 
             {/* Map Mockup container */}
             <div className="lg:col-span-7 relative h-72 lg:h-auto min-h-[350px] bg-stone-100 rounded-3xl overflow-hidden border border-stone-200 shadow-inner flex flex-col items-center justify-center p-6 text-center">
-              
+
               {/* Styled SVG Map Graphic to represent Map */}
               <div className="absolute inset-0 bg-stone-100/80 pointer-events-none opacity-40">
                 {/* Simulated streets lines grid */}
@@ -1296,20 +1318,20 @@ function App() {
                 <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-3 text-amber-600 animate-bounce">
                   <MapPin className="w-6 h-6 fill-amber-600/30" />
                 </div>
-                <h4 className="font-serif font-black text-stone-900 text-base">Trimurti Pure Veg</h4>
+                <h4 className="font-serif font-black text-stone-900 text-base">Vedaay Pure Veg</h4>
                 <p className="text-stone-500 text-xs mt-1.5">Pune Ring Road Junction, near Gold Heights.</p>
-                
+
                 <div className="flex gap-2.5 mt-4 justify-center">
-                  <a 
-                    href="https://maps.google.com" 
-                    target="_blank" 
+                  <a
+                    href="https://maps.google.com"
+                    target="_blank"
                     rel="noreferrer"
                     className="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2 rounded-xl transition-all flex items-center gap-1.5"
                   >
                     <Navigation className="w-3.5 h-3.5" />
                     <span>Get Directions</span>
                   </a>
-                  <button 
+                  <button
                     onClick={() => alert('Simulated GPS location shared to your device!')}
                     className="bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-semibold px-4 py-2 rounded-xl transition-all"
                   >
@@ -1333,19 +1355,19 @@ function App() {
       {/* Footer */}
       <footer className="bg-stone-900 text-white pt-12 pb-8 border-t border-stone-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-stone-800 text-left">
-            
+
             {/* Col 1 Brand */}
             <div className="space-y-4">
               <div className="flex items-center gap-2">
-                <div className="bg-emerald-600 p-1.5 rounded flex items-center justify-center">
-                  <Utensils className="w-4 h-4 text-white" />
+                <div className="bg-gradient-to-br from-emerald-500 to-emerald-700 p-1.5 rounded-lg flex items-center justify-center shadow-md">
+                  <Leaf className="w-4 h-4 text-white fill-white/30" />
                 </div>
-                <span className="text-xl font-serif font-black tracking-wider text-white">TRIMURTI</span>
+                <span className="text-xl font-serif font-black tracking-wider text-white">VEDAAY</span>
               </div>
               <p className="text-stone-400 text-xs leading-relaxed">
-                Traditional taste, hygiene-focused, and 100% vegetarian culinary excellence. Savor the flavors of authentic Indian kitchens.
+                Where every meal is a sacred offering — 100% pure vegetarian excellence. Savor the flavors of authentic Indian kitchens prepared with love.
               </p>
               <div className="flex items-center gap-2 text-emerald-400 font-bold text-[10px] border border-emerald-900/60 bg-emerald-950/40 w-fit px-2.5 py-1 rounded">
                 <span className="w-2 h-2 bg-emerald-500 rounded-full inline-block"></span>
@@ -1383,12 +1405,12 @@ function App() {
               <h4 className="text-amber-400 font-bold text-xs uppercase tracking-wider">Join Our Newsletter</h4>
               <p className="text-stone-400 text-xs">Get special discounts, recipe insights and festival offers.</p>
               <div className="flex gap-2">
-                <input 
+                <input
                   type="email"
                   placeholder="Enter email"
                   className="bg-stone-800 border border-stone-700 text-white px-3 py-2 text-xs rounded-xl focus:outline-none focus:border-amber-500 w-full"
                 />
-                <button 
+                <button
                   onClick={() => alert('Thank you for subscribing!')}
                   className="bg-amber-500 hover:bg-amber-600 text-stone-950 text-xs font-bold px-3 py-2 rounded-xl transition-all"
                 >
@@ -1401,7 +1423,7 @@ function App() {
 
           {/* Copyright line */}
           <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-stone-500 text-xs gap-4 text-center">
-            <p>© {new Date().getFullYear()} Trimurti Pure Veg Hotel. All Rights Reserved. Designed for premium dining.</p>
+            <p>© {new Date().getFullYear()} Vedaay Pure Veg Restaurant. All Rights Reserved. Designed for premium dining.</p>
             <div className="flex gap-4">
               <a href="#" className="hover:text-stone-300 transition-colors">Privacy Policy</a>
               <span>•</span>
@@ -1416,21 +1438,21 @@ function App() {
       {isCartOpen && (
         <div className="fixed inset-0 z-50 overflow-hidden">
           {/* Backdrop click to close */}
-          <div 
+          <div
             onClick={() => setIsCartOpen(false)}
             className="absolute inset-0 bg-stone-950/60 backdrop-blur-sm transition-opacity"
           ></div>
-          
+
           <div className="absolute inset-y-0 right-0 max-w-full flex pl-10">
             <div className="w-screen max-w-md bg-white shadow-2xl flex flex-col justify-between">
-              
+
               {/* Drawer Header */}
               <div className="p-6 border-b border-stone-200 flex items-center justify-between bg-stone-900 text-white">
                 <div className="flex items-center gap-2">
                   <ShoppingBag className="w-5 h-5 text-amber-500" />
                   <h3 className="font-serif font-black text-lg">My Plate (Order Cart)</h3>
                 </div>
-                <button 
+                <button
                   onClick={() => setIsCartOpen(false)}
                   className="p-1 rounded-full text-stone-400 hover:text-white hover:bg-stone-800 transition-colors cursor-pointer"
                 >
@@ -1442,13 +1464,13 @@ function App() {
               <div className="flex-1 overflow-y-auto p-6 space-y-4">
                 {cart.length > 0 ? (
                   cart.map((entry) => (
-                    <div 
+                    <div
                       key={entry.item.id}
                       className="flex items-center gap-4 bg-stone-50 p-3 rounded-xl border border-stone-200/60 relative group"
                     >
-                      <img 
-                        src={entry.item.image} 
-                        alt={entry.item.name} 
+                      <img
+                        src={entry.item.image}
+                        alt={entry.item.name}
                         className="w-16 h-16 object-cover rounded-lg border border-stone-200 shrink-0"
                       />
                       <div className="flex-1 text-left min-w-0">
@@ -1457,17 +1479,17 @@ function App() {
                           <h4 className="font-bold text-stone-900 text-sm truncate">{entry.item.name}</h4>
                         </div>
                         <p className="text-xs text-stone-400 font-mono mt-0.5">₹{entry.item.price} each</p>
-                        
+
                         {/* Quantity Controls */}
                         <div className="flex items-center gap-2.5 mt-2">
-                          <button 
+                          <button
                             onClick={() => removeFromCart(entry.item.id)}
                             className="bg-stone-200 hover:bg-stone-300 text-stone-700 p-1 rounded-full cursor-pointer"
                           >
                             <Minus className="w-3 h-3" />
                           </button>
                           <span className="text-xs font-black font-mono">{entry.quantity}</span>
-                          <button 
+                          <button
                             onClick={() => addToCart(entry.item)}
                             className="bg-stone-200 hover:bg-stone-300 text-stone-700 p-1 rounded-full cursor-pointer"
                           >
@@ -1478,7 +1500,7 @@ function App() {
 
                       {/* Total and Trash */}
                       <div className="text-right flex flex-col justify-between h-14">
-                        <button 
+                        <button
                           onClick={() => deleteFromCart(entry.item.id)}
                           className="text-stone-400 hover:text-red-500 self-end transition-colors cursor-pointer"
                         >
@@ -1499,7 +1521,7 @@ function App() {
                       <h4 className="font-bold text-stone-700 text-sm">Your plate is empty!</h4>
                       <p className="text-stone-400 text-xs mt-1">Add some delicious pure vegetarian starters or mains to get started.</p>
                     </div>
-                    <button 
+                    <button
                       onClick={() => setIsCartOpen(false)}
                       className="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2.5 rounded-full shadow transition-all cursor-pointer"
                     >
@@ -1514,14 +1536,14 @@ function App() {
                 <div className="p-6 border-t border-stone-200 bg-stone-50 space-y-4">
                   {/* Coupon Code section */}
                   <form onSubmit={applyPromoCode} className="flex gap-2">
-                    <input 
+                    <input
                       type="text"
-                      placeholder="Enter TRIMURTI20"
+                      placeholder="Enter VEDAAY20"
                       value={couponCode}
                       onChange={(e) => setCouponCode(e.target.value)}
                       className="bg-white border border-stone-200 text-stone-800 text-xs rounded-xl px-3 py-2 focus:outline-none focus:border-amber-500 w-full uppercase font-mono font-bold"
                     />
-                    <button 
+                    <button
                       type="submit"
                       className="bg-stone-900 text-white hover:bg-amber-500 hover:text-stone-950 text-xs font-bold px-4 py-2 rounded-xl transition-all cursor-pointer"
                     >
@@ -1532,7 +1554,7 @@ function App() {
                   {couponApplied && (
                     <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-2.5 text-xs text-emerald-700 font-medium flex justify-between items-center">
                       <span>✓ 20% discount code active!</span>
-                      <button 
+                      <button
                         onClick={() => {
                           setCouponApplied(false);
                           setDiscountPercent(0);
@@ -1550,14 +1572,14 @@ function App() {
                       <span>Subtotal</span>
                       <span className="font-mono">₹{subtotal}</span>
                     </div>
-                    
+
                     {discountAmount > 0 && (
                       <div className="flex justify-between text-emerald-600">
                         <span>Promo Discount (20%)</span>
                         <span className="font-mono">-₹{discountAmount}</span>
                       </div>
                     )}
-                    
+
                     <div className="flex justify-between">
                       <span>GST (5%)</span>
                       <span className="font-mono">₹{gstAmount.toFixed(1)}</span>
@@ -1565,7 +1587,7 @@ function App() {
 
                     <div className="flex justify-between">
                       <span className="flex items-center gap-1">
-                        Delivery & Packing 
+                        Delivery & Packing
                         {packingDeliveryFee === 0 && (
                           <span className="bg-emerald-100 text-emerald-700 text-[9px] px-1.5 py-0.5 rounded font-bold uppercase">Free</span>
                         )}
@@ -1583,7 +1605,7 @@ function App() {
                       <span className="text-2xl font-black text-stone-950 font-mono">₹{getGrandTotal()}</span>
                     </div>
 
-                    <button 
+                    <button
                       onClick={handleCheckout}
                       className="bg-amber-500 hover:bg-amber-600 text-stone-950 px-6 py-3 rounded-full font-bold text-sm shadow-md flex items-center gap-2 cursor-pointer hover:scale-105 transition-all"
                     >
@@ -1603,7 +1625,7 @@ function App() {
       {checkoutSuccess && (
         <div className="fixed inset-0 z-50 bg-stone-950/80 backdrop-blur-md flex items-center justify-center p-4">
           <div className="bg-white rounded-3xl overflow-hidden max-w-xl w-full border border-stone-200 shadow-2xl relative text-left">
-            
+
             {/* Modal Header */}
             <div className="bg-emerald-600 text-white p-6 flex justify-between items-start">
               <div>
@@ -1613,7 +1635,7 @@ function App() {
                 <h3 className="font-serif font-black text-xl mt-1.5">Your order is being cooked!</h3>
                 <p className="text-xs text-emerald-100 mt-1">Order ID: <span className="font-mono font-bold text-amber-300">{simulatedOrderDetails?.id}</span></p>
               </div>
-              <button 
+              <button
                 onClick={() => setCheckoutSuccess(false)}
                 className="bg-emerald-700/40 hover:bg-emerald-700/80 p-1.5 rounded-full text-white transition-colors cursor-pointer"
               >
@@ -1642,26 +1664,24 @@ function App() {
 
                 {/* Step 1: Received */}
                 <div className="relative flex gap-3 text-sm">
-                  <div className={`absolute -left-[27px] w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-black z-10 ${
-                    orderTimelineStep >= 0 
-                      ? 'bg-emerald-600 border-emerald-600 text-white' 
-                      : 'bg-white border-stone-300 text-stone-400'
-                  }`}>
+                  <div className={`absolute -left-[27px] w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-black z-10 ${orderTimelineStep >= 0
+                    ? 'bg-emerald-600 border-emerald-600 text-white'
+                    : 'bg-white border-stone-300 text-stone-400'
+                    }`}>
                     {orderTimelineStep > 0 ? '✓' : '1'}
                   </div>
                   <div>
                     <h4 className={`font-bold ${orderTimelineStep >= 0 ? 'text-emerald-700' : 'text-stone-400'}`}>Order Received & Confirmed</h4>
-                    <p className="text-xs text-stone-500">Trimurti restaurant team accepted your order at {simulatedOrderDetails?.time}.</p>
+                    <p className="text-xs text-stone-500">Vedaay restaurant team accepted your order at {simulatedOrderDetails?.time}.</p>
                   </div>
                 </div>
 
                 {/* Step 2: Preparing */}
                 <div className="relative flex gap-3 text-sm">
-                  <div className={`absolute -left-[27px] w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-black z-10 ${
-                    orderTimelineStep >= 1 
-                      ? 'bg-emerald-600 border-emerald-600 text-white' 
-                      : 'bg-white border-stone-300 text-stone-400'
-                  }`}>
+                  <div className={`absolute -left-[27px] w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-black z-10 ${orderTimelineStep >= 1
+                    ? 'bg-emerald-600 border-emerald-600 text-white'
+                    : 'bg-white border-stone-300 text-stone-400'
+                    }`}>
                     {orderTimelineStep > 1 ? '✓' : '2'}
                   </div>
                   <div>
@@ -1672,11 +1692,10 @@ function App() {
 
                 {/* Step 3: Out for Delivery */}
                 <div className="relative flex gap-3 text-sm">
-                  <div className={`absolute -left-[27px] w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-black z-10 ${
-                    orderTimelineStep >= 2 
-                      ? 'bg-emerald-600 border-emerald-600 text-white' 
-                      : 'bg-white border-stone-300 text-stone-400'
-                  }`}>
+                  <div className={`absolute -left-[27px] w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-black z-10 ${orderTimelineStep >= 2
+                    ? 'bg-emerald-600 border-emerald-600 text-white'
+                    : 'bg-white border-stone-300 text-stone-400'
+                    }`}>
                     {orderTimelineStep > 2 ? '✓' : '3'}
                   </div>
                   <div>
@@ -1687,11 +1706,10 @@ function App() {
 
                 {/* Step 4: Arrived */}
                 <div className="relative flex gap-3 text-sm">
-                  <div className={`absolute -left-[27px] w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-black z-10 ${
-                    orderTimelineStep >= 3 
-                      ? 'bg-emerald-600 border-emerald-600 text-white' 
-                      : 'bg-white border-stone-300 text-stone-400'
-                  }`}>
+                  <div className={`absolute -left-[27px] w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-black z-10 ${orderTimelineStep >= 3
+                    ? 'bg-emerald-600 border-emerald-600 text-white'
+                    : 'bg-white border-stone-300 text-stone-400'
+                    }`}>
                     4
                   </div>
                   <div>
@@ -1703,9 +1721,9 @@ function App() {
 
               {/* Rider details */}
               <div className="bg-stone-50 border border-stone-200 rounded-2xl p-4 flex items-center gap-3">
-                <img 
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&h=150&q=80" 
-                  alt="Delivery Rider Rajesh Kumar" 
+                <img
+                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&h=150&q=80"
+                  alt="Delivery Rider Rajesh Kumar"
                   className="w-12 h-12 rounded-full object-cover border border-stone-200 shrink-0"
                 />
                 <div className="flex-1 text-xs">
@@ -1714,15 +1732,15 @@ function App() {
                     <span className="bg-amber-100 text-amber-800 px-2 py-0.5 rounded font-bold text-[10px]">4.9 ★ (2,500+ deliveries)</span>
                   </div>
                   <p className="text-stone-500 mt-0.5">Your assigned professional delivery partner.</p>
-                  
+
                   <div className="flex gap-2.5 mt-2.5">
-                    <button 
+                    <button
                       onClick={() => alert('Simulating call to rider at +91 99887 76655')}
                       className="bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 text-[10px] font-bold px-3 py-1.5 rounded-lg transition-all"
                     >
                       Call Rajesh
                     </button>
-                    <button 
+                    <button
                       onClick={() => alert('Simulating messenger chat!')}
                       className="bg-stone-200 hover:bg-stone-300 text-stone-700 text-[10px] font-bold px-3 py-1.5 rounded-lg transition-all"
                     >
@@ -1752,7 +1770,7 @@ function App() {
 
             {/* Close tracker */}
             <div className="p-4 border-t border-stone-150 bg-stone-50 text-center">
-              <button 
+              <button
                 onClick={() => setCheckoutSuccess(false)}
                 className="bg-stone-900 hover:bg-stone-850 text-white font-bold text-xs px-6 py-2.5 rounded-xl cursor-pointer"
               >

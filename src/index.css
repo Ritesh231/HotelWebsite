@@ -7,19 +7,29 @@
   --font-sans: "Plus Jakarta Sans", sans-serif;
   --font-devanagari: "Yantra Manav", sans-serif;
   
-  --color-brand-green-light: #f4faf6;
+  --color-brand-green-light: #f0fdf4;
   --color-brand-green-medium: #10b981;
-  --color-brand-green-dark: #065f46;
+  --color-brand-green-dark: #064e3b;
   --color-brand-orange-light: #fff7ed;
   --color-brand-orange-medium: #f97316;
   --color-brand-orange-dark: #9a3412;
   --color-brand-gold: #d97706;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-sans);
   background-color: #fafaf9;
   color: #1c1917;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -28,4 +38,59 @@ h1, h2, h3, h4, h5, h6 {
 
 .hindi-text {
   font-family: var(--font-devanagari);
+}
+
+/* Premium scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #1c1917;
+}
+::-webkit-scrollbar-thumb {
+  background: #059669;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #10b981;
+}
+
+/* Spin animation for glow ring */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Smooth fade-in animation for sections */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Shimmer for badges */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Remove scrollbar from filter tabs */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Glassmorphism card util */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }

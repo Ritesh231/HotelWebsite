@@ -1,5 +1,5 @@
 export const menuData = [
-  // South Indian Breakfast
+  // ─── South Indian Breakfast ───────────────────────────────────────────────
   {
     id: "south-1",
     name: "Mysore Masala Dosa",
@@ -29,7 +29,7 @@ export const menuData = [
     price: 90,
     spicy: 1,
     description: "Crispy and savory deep-fried black lentil donuts, spiced with pepper and curry leaves, served with chutneys.",
-    image: "https://images.unsplash.com/photo-1601050690597-df056fb4ce78?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1730191843435-073792ba22bc?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmFkYXxlbnwwfHwwfHx8MA%3D%3D",
     tags: ["Crispy", "Popular"],
     rating: 4.6
   },
@@ -40,12 +40,12 @@ export const menuData = [
     price: 120,
     spicy: 1,
     description: "Thick savory rice pancakes topped with finely chopped onions, green chilies, and fresh coriander.",
-    image: "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80",
     tags: ["Filling"],
     rating: 4.5
   },
 
-  // Starters
+  // ─── Starters ────────────────────────────────────────────────────────────
   {
     id: "starter-1",
     name: "Paneer Tikka Angara",
@@ -64,7 +64,7 @@ export const menuData = [
     price: 180,
     spicy: 1,
     description: "Golden pan-fried patties made from nutrient-rich spinach, green peas, paneer, and aromatic house spices.",
-    image: "https://images.unsplash.com/photo-1601050690597-df056fb4ce78?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=600&q=80",
     tags: ["Healthy Pick"],
     rating: 4.4
   },
@@ -75,12 +75,12 @@ export const menuData = [
     price: 210,
     spicy: 2,
     description: "Minced mixed vegetables mixed with hand-pounded spices, skewered and roasted in the clay tandoor.",
-    image: "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=600&q=80",
     tags: ["Smoky flavor"],
     rating: 4.5
   },
 
-  // Main Course
+  // ─── Main Course ──────────────────────────────────────────────────────────
   {
     id: "main-1",
     name: "Paneer Butter Masala",
@@ -94,7 +94,7 @@ export const menuData = [
   },
   {
     id: "main-2",
-    name: "Trimurti Special Dal Makhani",
+    name: "Vedaay Special Dal Makhani",
     category: "Main Course",
     price: 220,
     spicy: 1,
@@ -110,7 +110,7 @@ export const menuData = [
     price: 210,
     spicy: 3,
     description: "Hand-picked vegetables cooked with crunchy bell peppers in a fiery masala prepared in an iron wok (kadhai).",
-    image: "https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=600&q=80",
     tags: ["Spicy Hub"],
     rating: 4.5
   },
@@ -121,12 +121,12 @@ export const menuData = [
     price: 280,
     spicy: 0,
     description: "Delicate dumplings of paneer and potato stuffed with dry fruit, served in a rich, aromatic sweet cashew gravy.",
-    image: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1574653853028-e2e0e3f0c0e9?auto=format&fit=crop&w=600&q=80",
     tags: ["Sweetish", "Premium"],
     rating: 4.8
   },
 
-  // Breads & Rice
+  // ─── Breads & Rice ────────────────────────────────────────────────────────
   {
     id: "bread-1",
     name: "Butter Naan",
@@ -145,7 +145,7 @@ export const menuData = [
     price: 60,
     spicy: 0,
     description: "Tandoor baked naan topped with crushed garlic, fresh coriander leaves, and glazed with premium butter.",
-    image: "https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?auto=format&fit=crop&w=600&q=80",
     tags: ["Highly Recommended"],
     rating: 4.85
   },
@@ -161,7 +161,7 @@ export const menuData = [
     rating: 4.8
   },
 
-  // Desserts
+  // ─── Desserts ─────────────────────────────────────────────────────────────
   {
     id: "dessert-1",
     name: "Sizzling Gulab Jamun",
@@ -169,7 +169,7 @@ export const menuData = [
     price: 140,
     spicy: 0,
     description: "Two hot gulab jamuns served on a sizzling hot plate with vanilla ice cream and dry fruit garnishing.",
-    image: "https://images.unsplash.com/photo-1601356616077-695728ecf769?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1616429266392-63ba6f1570a1?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Z3VsYWIlMjBqYW11bnxlbnwwfHwwfHx8MA%3D%3D",
     tags: ["Crowd Pleaser", "Sizzler"],
     rating: 4.9
   },
@@ -180,12 +180,12 @@ export const menuData = [
     price: 120,
     spicy: 0,
     description: "Flattened dumplings of cottage cheese soaked in cardamom, saffron-infused milk, topped with pistachios.",
-    image: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1602193676936-b1efb7e7d2a4?auto=format&fit=crop&w=600&q=80",
     tags: ["Cold Garnish", "Royal"],
     rating: 4.8
   },
 
-  // Beverages
+  // ─── Beverages ────────────────────────────────────────────────────────────
   {
     id: "bev-1",
     name: "Thick Mango Lassi",
@@ -215,7 +215,7 @@ export const reviewsData = [
     id: 1,
     name: "Rahul Sharma",
     rating: 5,
-    text: "The best vegetarian food in town! The Trimurti Special Dal Makhani is slow-cooked to perfection, reminding me of homemade slow-simmered dal. Paneer Tikka Angara is smoky and spice-perfect.",
+    text: "The best vegetarian food in town! The Vedaay Special Dal Makhani is slow-cooked to perfection, reminding me of homemade slow-simmered dal. Paneer Tikka Angara is smoky and spice-perfect.",
     role: "Local Guide",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80"
   },
@@ -223,7 +223,7 @@ export const reviewsData = [
     id: 2,
     name: "Anjali Deshmukh",
     rating: 5,
-    text: "Pure veg heaven! Finally, a restaurant that understands hygiene and authentic taste. Their Mysore Masala Dosa has the perfect spicy red paste layer. Mango Lassi is thick and rich. Will visit every weekend!",
+    text: "Pure veg heaven! Finally, Vedaay understands hygiene and authentic taste. Their Mysore Masala Dosa has the perfect spicy red paste layer. Mango Lassi is thick and rich. Will visit every weekend!",
     role: "Food Blogger",
     avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150&q=80"
   },
